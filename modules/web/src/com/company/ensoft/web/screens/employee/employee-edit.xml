@@ -6,18 +6,37 @@
     <data>
         <instance id="employeeDc"
                   class="com.company.ensoft.entity.Employee">
-            <view extends="_local"/>
+            <view extends="_local">
+                <property name="photo" view="_minimal"/>
+            </view>
             <loader/>
         </instance>
     </data>
     <dialogMode height="600"
                 width="800"/>
     <layout expand="editActions" spacing="true">
+        <hbox>
+        <groupBox id="employeePhoto" caption="photo">
+            <vbox>
+                <form id="photoEmp" dataContainer="employeeDc">
+                </form>
+                <form id="forUpload" dataContainer="employeeDc">
+                    <upload fileStoragePutMode="IMMEDIATE"
+                            dataContainer="employeeDc"
+                            property="photo"
+                            showFileName="false"
+                            showClearButton="true"
+                            caption=""
+                    />
+                </form>
+            </vbox>
+        </groupBox>
         <form id="form" dataContainer="employeeDc">
             <column width="350px">
                 <textField id="nameField" property="name"/>
             </column>
         </form>
+        </hbox>
         <hbox id="editActions" spacing="true">
             <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
             <button id="closeBtn" action="windowClose"/>

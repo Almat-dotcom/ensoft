@@ -10,6 +10,7 @@ create table ENSOFT_EMPLOYEE (
     DELETED_BY varchar(50),
     --
     NAME varchar(255) not null,
+    PHOTO_ID uuid,
     --
     primary key (ID)
 )^

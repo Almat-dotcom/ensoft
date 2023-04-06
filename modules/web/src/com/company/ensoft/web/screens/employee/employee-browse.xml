@@ -7,7 +7,9 @@
     <data readOnly="true">
         <collection id="employeesDc"
                     class="com.company.ensoft.entity.Employee">
-            <view extends="_local"/>
+            <view extends="_local">
+                <property name="photo" view="_minimal"/>
+            </view>
             <loader id="employeesDl">
                 <query>
                     <![CDATA[select e from ensoft_Employee e]]>
@@ -33,6 +35,7 @@
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
+                <column id="photo"/>
                 <column id="name"/>
             </columns>
             <rowsCount/>

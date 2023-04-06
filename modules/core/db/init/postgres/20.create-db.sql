@@ -2,3 +2,7 @@
 alter table ENSOFT_DOC add constraint FK_ENSOFT_DOC_ON_EMPLOYEE foreign key (EMPLOYEE) references ENSOFT_EMPLOYEE(ID)^
 create index IDX_ENSOFT_DOC_ON_EMPLOYEE on ENSOFT_DOC (EMPLOYEE)^
 -- end ENSOFT_DOC
+-- begin ENSOFT_EMPLOYEE
+alter table ENSOFT_EMPLOYEE add constraint FK_ENSOFT_EMPLOYEE_ON_PHOTO foreign key (PHOTO_ID) references SYS_FILE(ID)^
+create index IDX_ENSOFT_EMPLOYEE_ON_PHOTO on ENSOFT_EMPLOYEE (PHOTO_ID)^
+-- end ENSOFT_EMPLOYEE

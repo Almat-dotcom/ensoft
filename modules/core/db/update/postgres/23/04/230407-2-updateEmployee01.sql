@@ -1,0 +1,2 @@
+alter table ENSOFT_EMPLOYEE add constraint FK_ENSOFT_EMPLOYEE_ON_PHOTO foreign key (PHOTO_ID) references SYS_FILE(ID);
+create index IDX_ENSOFT_EMPLOYEE_ON_PHOTO on ENSOFT_EMPLOYEE (PHOTO_ID);
