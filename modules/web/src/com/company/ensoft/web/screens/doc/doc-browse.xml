@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://docBrowse.caption"
+        focusComponent="docsTable"
+        messagesPack="com.company.ensoft.web.screens.doc">
+    <data readOnly="true">
+        <collection id="docsDc"
+                    class="com.company.ensoft.entity.Doc">
+            <view extends="_local">
+                <property name="creatorBY" view="_minimal">
+                    <property name="name"/>
+                </property>
+            </view>
+            <loader id="docsDl">
+                <query>
+                    <![CDATA[select e from ensoft_Doc e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="docsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="docsTable"
+                dataLoader="docsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="docsTable"
+                    width="100%"
+                    dataContainer="docsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="docType"/>
+                <column id="theme"/>
+                <column id="description"/>
+                <column id="number"/>
+                <column id="creatorBY"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="docsTable.create"/>
+                <button id="editBtn" action="docsTable.edit"/>
+                <button id="removeBtn" action="docsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
